@@ -2,6 +2,7 @@ package com.jrancsar.genesis.entities.asociacion;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,7 +26,7 @@ public class CargoAdministrativo implements Serializable {
 	private Boolean activo;
 	
 	@JsonIgnore
-	@OneToOne(mappedBy = "cargoAdministrativo")
+	@OneToOne(mappedBy = "cargoAdministrativo", cascade = CascadeType.ALL)
 	private Usuario usuario;
 	
 	public CargoAdministrativo () {		

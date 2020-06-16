@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jrancsar.genesis.entities.asociacion.CargoAdministrativo;
 
 @Entity
@@ -36,16 +38,20 @@ public class Usuario implements Serializable {
 	private Instant fechaExpiracion;
 	private Boolean activo;
 	
-	@ManyToOne
-	@JoinColumn(name = "cargoAdministrativo_idCargoAdministrativo")
+	@OneToOne
+	//@MapsId
 	private CargoAdministrativo cargoAdministrativo;
+	
+	@ManyToOne
+	@JoinColumn(name = "usuarioPerfil_idPerfil")
+	private Perfil usuarioPerfil;
 	
 	public Usuario() {		
 	}
-
+	
 	public Usuario(String login, String dni, String aPaterno, String aMaterno, String nombre, String pass,
 			Instant fechaRegistro, String usuarioRegistro, Instant fechaModificacion, Instant usuarioModificacion,
-			Instant fechaExpiracion, Boolean activo, CargoAdministrativo cargoAdministrativo) {
+			Instant fechaExpiracion, Boolean activo, CargoAdministrativo cargoAdministrativo, Perfil usuarioPerfil) {
 		super();
 		this.login = login;
 		this.dni = dni;
@@ -60,6 +66,7 @@ public class Usuario implements Serializable {
 		this.fechaExpiracion = fechaExpiracion;
 		this.activo = activo;
 		this.cargoAdministrativo = cargoAdministrativo;
+		this.usuarioPerfil = usuarioPerfil;
 	}
 
 	public String getLogin() {
@@ -164,6 +171,14 @@ public class Usuario implements Serializable {
 
 	public void setCargoAdministrativo(CargoAdministrativo cargoAdministrativo) {
 		this.cargoAdministrativo = cargoAdministrativo;
+	}	
+	
+	public Perfil getUsuarioPerfil() {
+		return usuarioPerfil;
+	}
+
+	public void setUsuarioPerfil(Perfil usuarioPerfil) {
+		this.usuarioPerfil = usuarioPerfil;
 	}
 
 	@Override
