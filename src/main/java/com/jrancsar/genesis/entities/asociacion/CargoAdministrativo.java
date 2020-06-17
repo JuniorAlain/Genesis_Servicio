@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -14,14 +12,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jrancsar.genesis.entities.seguridad.Usuario;
 
 @Entity
-@Table(name = "TB_CargoAdministrativo")
+@Table(name = "Asociacion_tbCargoAdministrativo")
 public class CargoAdministrativo implements Serializable {		
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idCargoAdministrativo;
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer idCargoAdministrativo;
 	private String nCargoAdministrativo;
 	private Boolean activo;
 	
@@ -32,18 +30,18 @@ public class CargoAdministrativo implements Serializable {
 	public CargoAdministrativo () {		
 	}
 
-	public CargoAdministrativo(Long idCargoAdministrativo, String nCargoAdministrativo, Boolean activo) {
+	public CargoAdministrativo(Integer idCargoAdministrativo, String nCargoAdministrativo, Boolean activo) {
 		super();
 		this.idCargoAdministrativo = idCargoAdministrativo;
 		this.nCargoAdministrativo = nCargoAdministrativo;
 		this.activo = activo;
 	}
 
-	public Long getIdCargoAdministrativo() {
+	public Integer getIdCargoAdministrativo() {
 		return idCargoAdministrativo;
 	}
 
-	public void setIdCargoAdministrativo(Long idCargoAdministrativo) {
+	public void setIdCargoAdministrativo(Integer idCargoAdministrativo) {
 		this.idCargoAdministrativo = idCargoAdministrativo;
 	}
 

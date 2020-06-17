@@ -19,7 +19,7 @@ public class CargoAdministrativoService {
 		return repository.findAll();
 	}
 		
-	public CargoAdministrativo findById(Long idCargoAdministrativo) {		
+	public CargoAdministrativo findById(Integer idCargoAdministrativo) {		
 		Optional<CargoAdministrativo> objeto = repository.findById(idCargoAdministrativo);
 		return objeto.get();		
 	}

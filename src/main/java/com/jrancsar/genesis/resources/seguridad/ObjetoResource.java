@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.jrancsar.genesis.entities.seguridad.Perfil;
-import com.jrancsar.genesis.services.seguridad.PerfilService;
+import com.jrancsar.genesis.entities.seguridad.Objeto;
+import com.jrancsar.genesis.services.seguridad.ObjetoService;
 
 @RestController
-@RequestMapping(value= "/perfiles")
-public class PerfilResource {
+@RequestMapping(value= "/objetos")
+public class ObjetoResource {
 	
 	@Autowired
-	private PerfilService service;
+	private ObjetoService service;
 	
 	@GetMapping
-	public ResponseEntity<List <Perfil>> findAll(){		
-		List<Perfil> list = service.findAll();		
+	public ResponseEntity<List <Objeto>> findAll(){		
+		List<Objeto> list = service.findAll();		
 		return ResponseEntity.ok().body(list);
 	}
 	
-	@GetMapping(value = "/{idPerfil}")
-	public ResponseEntity<Perfil> findById(@PathVariable Integer idPerfil){
-		Perfil objeto = service.findById(idPerfil);
+	@GetMapping(value = "/{idObjeto}")
+	public ResponseEntity<Objeto> findById(@PathVariable Integer idObjeto){
+		Objeto objeto = service.findById(idObjeto);
 		return ResponseEntity.ok().body(objeto);		
 	}	
 }

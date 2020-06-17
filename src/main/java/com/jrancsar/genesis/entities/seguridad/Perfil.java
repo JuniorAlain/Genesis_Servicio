@@ -6,8 +6,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -15,15 +13,15 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "TB_Perfil")
+@Table(name = "Seguridad_tbPerfil")
 public class Perfil implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idPerfil;
-	private String nPerfil;
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	private Integer idPerfil;	
+	private String nPerfil;	
 	private Boolean activo;
 	
 	@JsonIgnore
@@ -33,18 +31,18 @@ public class Perfil implements Serializable {
 	public Perfil() {		
 	}
 	
-	public Perfil(Long idPerfil, String nPerfil, Boolean activo) {
+	public Perfil(Integer idPerfil, String nPerfil, Boolean activo) {
 		super();
 		this.idPerfil = idPerfil;
 		this.nPerfil = nPerfil;
 		this.activo = activo;
 	}
 
-	public Long getIdPerfil() {
+	public Integer getIdPerfil() {
 		return idPerfil;
 	}
 
-	public void setIdPerfil(Long idPerfil) {
+	public void setIdPerfil(Integer idPerfil) {
 		this.idPerfil = idPerfil;
 	}
 

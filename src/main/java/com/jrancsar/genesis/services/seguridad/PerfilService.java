@@ -19,7 +19,7 @@ public class PerfilService {
 		return repository.findAll();
 	}
 		
-	public Perfil findById(Long idPerfil) {		
+	public Perfil findById(Integer idPerfil) {		
 		Optional<Perfil> objeto = repository.findById(idPerfil);
 		return objeto.get();		
 	}

@@ -11,11 +11,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jrancsar.genesis.entities.asociacion.CargoAdministrativo;
 
 @Entity
-@Table(name = "TB_Usuario")
+@Table(name = "Seguridad_tbUsuario")
 public class Usuario implements Serializable {
 	
 	private static final long serialVersionUID = 1L;

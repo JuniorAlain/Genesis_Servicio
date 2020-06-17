@@ -26,7 +26,7 @@ public class CargoAdministrativoResource {
 	}
 	
 	@GetMapping(value = "/{idCargoAdministrativo}")
-	public ResponseEntity<CargoAdministrativo> findById(@PathVariable Long idCargoAdministrativo){
+	public ResponseEntity<CargoAdministrativo> findById(@PathVariable Integer idCargoAdministrativo){
 		CargoAdministrativo objeto = service.findById(idCargoAdministrativo);
 		return ResponseEntity.ok().body(objeto);		
 	}
