@@ -2,9 +2,10 @@ package com.jrancsar.genesis.entities.seguridad;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -25,8 +26,12 @@ public class Perfil implements Serializable {
 	private Boolean activo;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "usuarioPerfil", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuarioPerfil")//, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Usuario> usuarios = new ArrayList<>();
+	
+	//@JsonIgnore para que ignore a la tabla PerfilFuncionalidad
+	@OneToMany(mappedBy = "idPerfilFuncionalidad.perfil")
+	private Set<PerfilFuncionalidad> funcionalidad = new HashSet<>();
 	
 	public Perfil() {		
 	}
@@ -64,6 +69,10 @@ public class Perfil implements Serializable {
 
 	public List<Usuario> getUsuarios() {
 		return usuarios;
+	}
+	
+	public Set<PerfilFuncionalidad> getFuncionalidad() {
+		return funcionalidad;
 	}
 
 	@Override

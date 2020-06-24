@@ -1,11 +1,12 @@
 package com.jrancsar.genesis.entities.asociacion;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -24,8 +25,8 @@ public class CargoAdministrativo implements Serializable {
 	private Boolean activo;
 	
 	@JsonIgnore
-	@OneToOne(mappedBy = "cargoAdministrativo", cascade = CascadeType.ALL)
-	private Usuario usuario;
+	@OneToMany(mappedBy = "cargoAdministrativo")//, cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<Usuario> usuarios = new ArrayList<>();
 	
 	public CargoAdministrativo () {		
 	}
@@ -61,12 +62,8 @@ public class CargoAdministrativo implements Serializable {
 		this.activo = activo;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
 	
 	@Override

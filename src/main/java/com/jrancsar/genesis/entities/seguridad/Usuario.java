@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -37,8 +36,10 @@ public class Usuario implements Serializable {
 	private Instant fechaExpiracion;
 	private Boolean activo;
 	
-	@OneToOne
+	//@OneToOne
 	//@MapsId
+	@ManyToOne
+	@JoinColumn(name = "cargoAdministrativo_idCargoAdministrativo")
 	private CargoAdministrativo cargoAdministrativo;
 	
 	@ManyToOne
