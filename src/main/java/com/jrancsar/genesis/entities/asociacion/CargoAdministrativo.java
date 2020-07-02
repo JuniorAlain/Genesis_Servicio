@@ -19,10 +19,11 @@ public class CargoAdministrativo implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idCargoAdministrativo;
-	private String nCargoAdministrativo;
-	private Boolean activo;
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)	
+	private Integer idCargoAdministrativo;	
+	private String nCargoAdministrativo;	
+	private Boolean activo;	
+	private String version;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "cargoAdministrativo")//, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -31,11 +32,12 @@ public class CargoAdministrativo implements Serializable {
 	public CargoAdministrativo () {		
 	}
 
-	public CargoAdministrativo(Integer idCargoAdministrativo, String nCargoAdministrativo, Boolean activo) {
+	public CargoAdministrativo(Integer idCargoAdministrativo, String nCargoAdministrativo, Boolean activo, String version) {
 		super();
 		this.idCargoAdministrativo = idCargoAdministrativo;
 		this.nCargoAdministrativo = nCargoAdministrativo;
 		this.activo = activo;
+		this.version = version;
 	}
 
 	public Integer getIdCargoAdministrativo() {
@@ -60,7 +62,15 @@ public class CargoAdministrativo implements Serializable {
 
 	public void setActivo(Boolean activo) {
 		this.activo = activo;
+	}	
+
+	public String getVersion() {
+		return version;
 	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}	
 
 	public List<Usuario> getUsuarios() {
 		return usuarios;
@@ -89,5 +99,5 @@ public class CargoAdministrativo implements Serializable {
 		} else if (!idCargoAdministrativo.equals(other.idCargoAdministrativo))
 			return false;
 		return true;
-	}		
+	}	
 }

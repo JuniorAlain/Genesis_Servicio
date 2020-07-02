@@ -24,6 +24,7 @@ public class Usuario implements Serializable {
 	private String aPaterno;
 	private String aMaterno;
 	private String nombre;
+	private String nombreCompleto;
 	private String pass;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant fechaRegistro;
@@ -49,7 +50,7 @@ public class Usuario implements Serializable {
 	public Usuario() {		
 	}
 	
-	public Usuario(String login, String dni, String aPaterno, String aMaterno, String nombre, String pass,
+	public Usuario(String login, String dni, String aPaterno, String aMaterno, String nombre, String nombreCompleto, String pass,
 			Instant fechaRegistro, String usuarioRegistro, Instant fechaModificacion, Instant usuarioModificacion,
 			Instant fechaExpiracion, Boolean activo, CargoAdministrativo cargoAdministrativo, Perfil usuarioPerfil) {
 		super();
@@ -58,6 +59,7 @@ public class Usuario implements Serializable {
 		this.aPaterno = aPaterno;
 		this.aMaterno = aMaterno;
 		this.nombre = nombre;
+		this.nombreCompleto = nombreCompleto;
 		this.pass = pass;
 		this.fechaRegistro = fechaRegistro;
 		this.usuarioRegistro = usuarioRegistro;
@@ -107,6 +109,14 @@ public class Usuario implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+
+	public String getNombreCompleto() {
+		return nombreCompleto;
+	}
+
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
 	}
 
 	public String getPass() {

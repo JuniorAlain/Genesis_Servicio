@@ -19,12 +19,13 @@ public class Objeto implements Serializable{
 	private Integer objetoPadre;
 	private String comando;
 	private Boolean activo;
+	private String version;
 	
 	public Objeto() {		
 	}
 
 	public Objeto(Integer idObjeto, String nObjeto, String descripcion, Integer objetoPadre, String comando,
-			Boolean activo) {
+			Boolean activo, String version) {
 		super();
 		this.idObjeto = idObjeto;
 		this.nObjeto = nObjeto;
@@ -32,6 +33,7 @@ public class Objeto implements Serializable{
 		this.objetoPadre = objetoPadre;
 		this.comando = comando;
 		this.activo = activo;
+		this.version = version;
 	}
 
 	public Integer getIdObjeto() {
@@ -82,6 +84,14 @@ public class Objeto implements Serializable{
 		this.activo = activo;
 	}
 
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

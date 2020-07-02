@@ -30,5 +30,4 @@ public class UsuarioResource {
 		Usuario objeto = service.findById(login);
 		return ResponseEntity.ok().body(objeto);		
 	}
-	
 }
