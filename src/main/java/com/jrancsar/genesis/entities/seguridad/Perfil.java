@@ -24,6 +24,7 @@ public class Perfil implements Serializable {
 	private Integer idPerfil;	
 	private String nPerfil;	
 	private Boolean activo;
+	private String version;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "usuarioPerfil")//, cascade = CascadeType.ALL, orphanRemoval = true)
@@ -36,11 +37,12 @@ public class Perfil implements Serializable {
 	public Perfil() {		
 	}
 	
-	public Perfil(Integer idPerfil, String nPerfil, Boolean activo) {
+	public Perfil(Integer idPerfil, String nPerfil, Boolean activo, String version) {
 		super();
 		this.idPerfil = idPerfil;
 		this.nPerfil = nPerfil;
 		this.activo = activo;
+		this.version = version;
 	}
 
 	public Integer getIdPerfil() {
@@ -67,6 +69,14 @@ public class Perfil implements Serializable {
 		this.activo = activo;
 	}
 
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+	
 	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}

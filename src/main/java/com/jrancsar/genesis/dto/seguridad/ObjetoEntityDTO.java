@@ -115,14 +115,6 @@ public class ObjetoEntityDTO implements Serializable{
 	public void setActivo(Boolean activo) {
 		this.activo = activo;
 	}
-	
-	public Boolean getExiste() {
-		return existe;
-	}
-
-	public void setExiste(Boolean existe) {
-		this.existe = existe;
-	}
 
 	public String getVersion() {
 		return version;
@@ -130,5 +122,13 @@ public class ObjetoEntityDTO implements Serializable{
 
 	public void setVersion(String version) {
 		this.version = version;
+	}
+	
+	public Boolean getExiste() {
+		return existe;
+	}
+	
+	public void setExiste(Boolean existe) {
+		this.existe = existe;
 	}	
 }

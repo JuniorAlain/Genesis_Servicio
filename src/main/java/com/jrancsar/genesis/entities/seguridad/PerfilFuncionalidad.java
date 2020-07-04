@@ -28,12 +28,13 @@ public class PerfilFuncionalidad implements Serializable{
 	private Boolean visualizar;
 	private Boolean exportar;
 	private Boolean activo;
+	private String version; 
 	
 	public PerfilFuncionalidad() {		
 	}
 	
 	public PerfilFuncionalidad(Perfil perfil, Objeto objeto, Boolean leer, Boolean escribir, Boolean ejecutar, Boolean imprimir, Boolean visualizar,
-			Boolean exportar, Boolean activo) {
+			Boolean exportar, Boolean activo, String version) {
 		super();
 		idPerfilFuncionalidad.setPerfil(perfil);
 		idPerfilFuncionalidad.setObjeto(objeto);;
@@ -44,6 +45,7 @@ public class PerfilFuncionalidad implements Serializable{
 		this.visualizar = visualizar;
 		this.exportar = exportar;
 		this.activo = activo;
+		this.version = version;
 	}
 	
 	@JsonIgnore
@@ -117,6 +119,14 @@ public class PerfilFuncionalidad implements Serializable{
 
 	public void setActivo(Boolean activo) {
 		this.activo = activo;
+	}
+	
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
 	}
 
 	@Override
